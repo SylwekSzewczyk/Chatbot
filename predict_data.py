@@ -45,4 +45,6 @@ class Chatbot:
         return_list = []
         for r in results:
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
-        return return_list
+        return 
+    
+    
