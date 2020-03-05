@@ -45,6 +45,21 @@ class Chatbot:
         return_list = []
         for r in results:
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
-        return 
+        return return_list
     
+    def get_response(self, ints, intents_json):
+        
+        tag = ints[0]['intent']
+        list_of_intents = intents_json
+        for i in list_of_intents:
+            if i['tag'] == tag:
+                result = random.choice(i['responses'])
+                break
+        return result
+    
+    def chatbot_response(self, text):
+        
+        ints = self.predict_class(text, model)
+        res = self.get_response(ints, intents)
+        return res
     
